@@ -1,4 +1,4 @@
-package NUST.UniProject.UniSlotSelection.entity
-
-class Semester {
-}
+//package NUST.UniProject.UniSlotSelection.entity
+//
+//class Semester {
+//}

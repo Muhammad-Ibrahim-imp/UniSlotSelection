@@ -1,4 +1,4 @@
-package NUST.UniProject.UniSlotSelection.entity
-
-class CourseOffering {
-}
+//package NUST.UniProject.UniSlotSelection.entity
+//
+//class CourseOffering {
+//}
