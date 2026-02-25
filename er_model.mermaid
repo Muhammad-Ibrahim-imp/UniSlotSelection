@@ -1,0 +1,72 @@
+erDiagram
+    DEGREE_PROGRAM {
+        Long degreeId PK
+        String degreeName
+    }
+
+    DEPARTMENT {
+        Long departmentId PK
+        String departmentName
+    }
+
+    PROFESSOR {
+        Int professorId PK
+        String professorName
+        Long departmentId FK
+    }
+
+    SEMESTER {
+        Long semesterId PK
+        String term
+        String year
+    }
+
+    TIME_SLOT {
+        Long timeSlotId PK
+        String dayOfWeek
+        String startTime
+        String endTime
+    }
+
+    COURSE {
+        Long courseId PK
+        String courseTitle
+        String courseCode
+        Int creditHours
+    }
+
+    COURSE_OFFERING {
+        Long offeringId PK
+        Long courseId FK
+        Long professorId FK
+        Long departmentId FK
+        Long semesterId FK
+        Long timeSlotId FK
+        Int capacity
+    }
+
+    STUDENT {
+        Long studentId PK
+        String name
+        String email
+        Int year
+        Long degreeId FK
+        Long departmentId FK
+    }
+
+    ENROLLMENT {
+        Long enrollmentId PK
+        Long studentId FK
+        Long offeringId FK
+    }
+
+    DEGREE_PROGRAM ||--o{ STUDENT : "enrolled in"
+    DEPARTMENT ||--o{ STUDENT : "belongs to"
+    DEPARTMENT ||--o{ PROFESSOR : "employs"
+    DEPARTMENT ||--o{ COURSE_OFFERING : "hosts"
+    PROFESSOR ||--o{ COURSE_OFFERING : "teaches"
+    COURSE ||--o{ COURSE_OFFERING : "offered as"
+    SEMESTER ||--o{ COURSE_OFFERING : "scheduled in"
+    TIME_SLOT ||--o{ COURSE_OFFERING : "assigned to"
+    STUDENT ||--o{ ENROLLMENT : "enrolls"
+    COURSE_OFFERING ||--o{ ENROLLMENT : "has"
