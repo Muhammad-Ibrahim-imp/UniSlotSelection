@@ -1,15 +1,13 @@
 package NUST.UniProject.UniSlotSelection.repository
 
-import NUST.UniProject.UniSlotSelection.entity.*
+import com.example.university.entity.CompulsoryCourse
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface CompulsoryCourseRepository {
-    interface CompulsoryCourseRepository :
-        JpaRepository<CompulsoryCourse, Long> {
+interface CompulsoryCourseRepository :
+    JpaRepository<CompulsoryCourse, Long> {
 
-        fun findByDegree_DegreeIdAndYear(
-            degreeId: Long,
-            year: Int
-        ): List<CompulsoryCourse>
-    }
+    fun findByDegree_DegreeIdAndYear(
+        degreeId: Long,
+        year: Int
+    ): List<CompulsoryCourse>
 }
